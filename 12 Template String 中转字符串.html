@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    span {
+      display: block;
+      font-size: 20px;
+      line-height: 50px;
+      text-align: center;
+      height: 50px;
+      background: skyblue;
+    }
+  </style>
+</head>
+
+<body>
+  <span>https://github.com/cure53/DOMPurify</span>
+  <div></div>
+  <script src="purify.min.js"></script>
+  <script>
+    const sanitize = (strings, ...args) => {
+      const dirty = strings.reduce((prev, curr, i) => `${prev}${curr}${args[i] || ''}`, '');
+      return DOMPurify.sanitize(dirty).trim();
+    }
+    const user = 'Mary';
+    // <span onclick="alter(11)"></span>
+    const topic = '<span onclick="alter(11)" style="color:white">123123</span>';
+    const sentance = sanitize`${user} has commented on your topic ${topic}`;
+    console.log(sentance);
+    document.querySelector('div').innerHTML = sentance;
+  </script>
+</body>
+
+</html>

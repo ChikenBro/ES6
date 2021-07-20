@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const Jelly = {
+      name: 'Jelly',
+      date: '2017-05-07',
+      todos: [
+        { name: 'Go to Store', comleted: false },
+        { name: 'Watch Movie', comleted: true },
+        { name: 'Running', comleted: true },
+      ]
+    }
+    //可以嵌套使用`` 并且可以使用函数和三元表达式
+    const template = `
+        <ul>
+          ${Jelly.todos.map(todo => `
+            <li>
+              ${todo.name} ${todo.comleted ? '√' : '×'}
+            </li>`).join('')}
+        </ul>`
+    //通常会封装成一个函数
+    const func = (todos) => {
+      return `
+        <ul>
+          ${Jelly.todos.map(todo => `
+            <li>
+              ${todo.name} ${todo.comleted ? '√' : '×'}
+            </li>`).join('')}
+        </ul>`
+    }
+    console.log(template);
+    document.body.innerHTML = func(Jelly.todos);
+  </script>
+</body>
+
+</html>
