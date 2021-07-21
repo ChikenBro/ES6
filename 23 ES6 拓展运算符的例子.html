@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .completed {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>Go</li>
+    <li>Run</li>
+    <li>Rest</li>
+  </ul>
+  <script>
+    // 1
+    const todoss = [...document.querySelectorAll('li')];
+    const names = todoss.map(todo => todo.textContent);
+    console.log(names);
+
+    // 2
+    const favorites = {
+      color: ['yellow', 'red'],
+      fruits: ['apple', 'orange']
+    }
+    const shoppingList = ['mike', 'sweets', ...favorites.fruits];
+    console.log(shoppingList);
+
+    // 3
+    const todos = [
+      { id: 1, name: 'Go', completed: false },
+      { id: 2, name: 'Run', completed: true },
+      { id: 3, name: 'Rest', completed: false },
+    ];
+    const id = 2;
+    const todoIndex = todos.findIndex(todo => todo.id === id);
+
+    const newTodos = [...todos.slice(0, todoIndex), ...todos.slice(todoIndex + 1)];
+    console.log(newTodos);
+
+    //  react
+    // this.setState({ todos: newTodos });
+    // console.log(todos);
+
+  </script>
+</body>
+
+</html>

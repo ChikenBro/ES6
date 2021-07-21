@@ -17,4 +17,4 @@ console.log(Tom, Bob, Cindy);
 let a = 1,
   b = 2;
 [a, b] = [b, a];
-console.log(c, b);
+console.log(a, b);

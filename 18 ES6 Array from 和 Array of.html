@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .completed {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>Go</li>
+    <li>Run</li>
+    <li>Rest</li>
+  </ul>
+  <script>
+    // 只能通过Array.from 和Array.of调用 他不是原型方法
+    // todos只是一个类数组对象 NodeList
+    const todos = document.querySelectorAll('li');
+    // const todosArr = Array.from(todos);
+    // const names = todosArr.map(todo => todo.innerHTML);
+    // 相当于先转换为数组 然后在调用map方法
+    const names = Array.from(todos, todo => todo.textContent);
+    console.log(names);
+
+    // arguments本来是是Object 他是没有reduce这个方法的 
+    function sum() {
+      return Array.from(arguments).reduce((prev, curr) => prev + curr, 0)
+    }
+
+    //字符串作为参数
+    const myname = 'zengrf';
+    const arr = Array.from(myname);
+    console.log(arr);
+
+    // Array.of主要是为了弥补构造数组时候的缺陷
+    const one = Array.of(1);  //[1]
+    const two = Array.of(1, 2, 3);  //[1,2,3]
+    console.log(one, two);
+  </script>
+</body>
+
+</html>

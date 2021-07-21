@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .completed {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>Go</li>
+    <li>Run</li>
+    <li>Rest</li>
+  </ul>
+  <script>
+    const fruits = ['apple', 'bnanan', 'orange', 'mango'];
+    // 得到的是索引和值的数组
+    for (let [index, fruit] of fruits.entries())
+      console.log(index, fruit);
+
+    //但不支持对象
+    //用于数组
+    function sum() {
+      let total = 0;
+      for (let num of arguments)
+        total += num;
+      return total;
+    }
+    console.log(sum(10, 20, 30, 30, 40, 50));
+
+    //用于字符串
+    let myname = 'zengrf';
+    for (let char of myname)
+      console.log(char);
+
+    //用于node
+    const lis = document.querySelectorAll('li');
+    for (let li of lis) {
+      li.addEventListener('click', function () {
+        this.classList.toggle('completed');
+      })
+    }
+  </script>
+</body>
+
+</html>
