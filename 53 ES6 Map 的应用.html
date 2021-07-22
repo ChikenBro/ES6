@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>Fire</button>
+  <button>Dancer</button>
+  <button>Ice Cream</button>
+  <button>Hamburger</button>
+  <button>Fish</button>
+</body>
+<script>
+  const clickCount = new Map();
+  const buttons = document.querySelectorAll('button');
+  buttons.forEach(button => {
+    clickCount.set(button, 0);
+    button.addEventListener('click', function () {
+      const val = clickCount.get(this);
+      clickCount.set(this, val + 1);
+      console.log(clickCount);
+    })
+  });
+
+</script>
+
+</html>

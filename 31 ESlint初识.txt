@@ -1,0 +1,10 @@
+npm install -g eslint
+eslint init
+https://blog.csdn.net/q9090960bnb3/article/details/104207522
+
+安装好eslint后初始化，结果错误提示 'path'，因为在此系统上禁止运行脚本。
+解决方案:
+  以管理员的方式运行vscode，或者管理员运行powershell也可以，然后执行以下命令
+  执行get-ExecutionPolicy，显示Restricted，表示状态是禁止的
+  执行set-ExecutionPolicy RemoteSigned
+  再执行get-ExecutionPolicy查看状态，显示RemoteSigned，表示允许状态
